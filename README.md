@@ -1,4 +1,5 @@
 # weiboNewsNotification
+
 微博信息提示助手
 
 ## 主要内容
@@ -8,3 +9,7 @@
 如果可以朗读就更好了
 
 毕竟我只是想换一种形式显示浏览器看到的内容
+
+## 参考资料
+
+https://github.com/sunxiang0918/weiboNotify
