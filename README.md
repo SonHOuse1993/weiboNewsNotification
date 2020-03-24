@@ -12,8 +12,6 @@
 
 ## 参考资料
 
-https://github.com/sunxiang0918/weiboNotify
-
 https://github.com/search?q=sina&type=Repositories
 
 https://so.csdn.net/so/search/s.do?q=%E5%BE%AE%E5%8D%9A%20%E7%88%AC%E8%99%AB&t=&u=
@@ -25,5 +23,3 @@ https://download.csdn.net/download/carrielsx/10497382?ops_request_misc=%257B%252
 https://blog.csdn.net/qq_39521554/article/details/87940001
 
 https://download.csdn.net/download/weixin_39840387/11514223
-
-test111
