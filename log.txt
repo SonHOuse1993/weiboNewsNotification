@@ -1,0 +1,23 @@
+https://www.cnblogs.com/zhixi/p/9996832.html
+
+https://www.jianshu.com/p/8dc04794e35f
+
+我的账号
+"uid":"6351031149" 6351031149
+
+访问这个人的微博
+https://m.weibo.cn/u/5722964389/home?wvr=5&wvr=5&jumpfrom=weibocom
+
+访问这个人某一条微博
+https://m.weibo.cn/detail/4455832869303097
+
+这条微博的评论url
+第一页
+https://m.weibo.cn/comments/hotflow?id=4455832869303097&mid=4455832869303097&max_id_type=0
+
+https://m.weibo.cn/comments/hotflow?id=4455832869303097&mid=4455832869303097&max_id=164656528093&max_id_type=0
+
+
+好啦，综上三点（1）在response中的json数据中有max_id字段，（2）评论第一页的url中没有max_id字段，（3）评论第一页的url是可以反复多次打开的。本姑娘大胆猜测，把第一页的url的response中的max_id的值拼接到评论第一页的url上得到的结果一定是评论第二页的数据！接下来就是见证奇迹的时刻了：
+
+https://m.weibo.cn/comments/hotflow?id=4455832869303097&mid=4455832869303097&max_id=138840556976238&max_id_type=0
