@@ -11,6 +11,8 @@ from urllib.parse import quote_plus
 import http.cookiejar as cookielib
 import json
 
+max_id = ""
+cookie_dict = ""
 agent = 'mozilla/5.0 (windowS NT 10.0; win64; x64) appLewEbkit/537.36 (KHTML, likE gecko) chrome/71.0.3578.98 safari/537.36'
 headers = {'User-Agent': agent}
 
@@ -246,12 +248,13 @@ while True:
 
 
 if __name__ == '__main__':
+
     # 用户信息，可以用用前端页面重新写，待做
     username = "13087516654"  # 用户名
     password = "19931228"  # 密码
     # 设置cookie存储路径
-    cookie_path = "../cookie/cookie.txt"  # 保存cookie 的文件名称
+    cookie_path = "cookie.txt"  # 保存cookie 的文件名称
     #登录微博
     weibo = WeiboLogin(username, password, cookie_path)
-    # weibo.login()
-    # weibo_comment()
+    weibo.login()
+    weibo_comment()
