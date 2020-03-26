@@ -11,39 +11,6 @@ from urllib.parse import quote_plus
 import http.cookiejar as cookielib
 import json
 
-import tkinter as tk
-from tkinter import messagebox
-from tkinter.simpledialog import askstring, askinteger, askfloat
-
-
-def getInput(title, message):
-    def return_callback(event):
-        print('quit...')
-        root.quit()
-    def close_callback():
-        tkMessageBox.showinfo('message', 'no click...')
-    root = Tk(className=title)
-    root.wm_attributes('-topmost', 1)
-    screenwidth, screenheight = root.maxsize()
-    width = 300
-    height = 100
-    size = '%dx%d+%d+%d' % (width, height, (screenwidth - width)/2, (screenheight - height)/2)
-    root.geometry(size)
-    root.resizable(0, 0)
-    lable = Label(root, height=2)
-    lable['text'] = message
-    lable.pack()
-    entry = Entry(root)
-    entry.bind('<Return>', return_callback)
-    entry.pack()
-    entry.focus_set()
-    root.protocol("WM_DELETE_WINDOW", close_callback)
-    root.mainloop()
-    str = entry.get()
-    root.destroy()
-    return str
-
-
 agent = 'mozilla/5.0 (windowS NT 10.0; win64; x64) appLewEbkit/537.36 (KHTML, likE gecko) chrome/71.0.3578.98 safari/537.36'
 headers = {'User-Agent': agent}
 
@@ -52,7 +19,6 @@ class WeiboLogin(object):
     """
     通过登录 weibo.com 然后跳转到 m.weibo.cn
     """
-
     # 初始化数据
     def __init__(self, user, password, cookie_path):
         super(WeiboLogin, self).__init__()
@@ -89,7 +55,6 @@ class WeiboLogin(object):
         # print(pre_data_res.text)
         # print("*" * 50)
         sever_data = eval(pre_data_res.content.decode("utf-8").replace("sinaSSOController.preloginCallBack", ''))
-
         return sever_data
 
     def get_password(self, servertime, nonce, pubkey):
@@ -257,10 +222,9 @@ def weibo_comment():
 
 while True:
     if max_id == "":
-        url = "https://m.weibo.cn/comments/hotflow?id=4344811987373681&mid=4344811987373681&max_id_type=0"
+        url = "https://m.weibo.cn/comments/hotflow?id=4485249075923847&mid=4485249075923847&max_id_type=0"
     else:
-        url = "https://m.weibo.cn/comments/hotflow?id=4344811987373681&mid=4344811987373681&max_id=" + str(
-            max_id) + "&max_id_type=0"
+        url = "https://m.weibo.cn/comments/hotflow?id=4485249075923847&mid=4485249075923847&max_id=" + str(max_id) + "&max_id_type=0"
     # print(url)
     response = requests.get(url, headers=headers, cookies=cookie_dict)
     comment = response.json()
@@ -280,13 +244,14 @@ while True:
     time.sleep(1)
     print(line)
 
+
 if __name__ == '__main__':
-    getInput('title', 'message')
-    username = "********"  # 用户名
-    password = "********"  # 密码
-    cookie_path = "Cookie.txt"  # 保存cookie 的文件名称
+    # 用户信息，可以用用前端页面重新写，待做
+    username = "13087516654"  # 用户名
+    password = "19931228"  # 密码
+    # 设置cookie存储路径
+    cookie_path = "../cookie/cookie.txt"  # 保存cookie 的文件名称
+    #登录微博
     weibo = WeiboLogin(username, password, cookie_path)
-    weibo.login()
-    weibo_comment()
-
-
+    # weibo.login()
+    # weibo_comment()
